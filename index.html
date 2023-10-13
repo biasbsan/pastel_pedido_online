@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"> </link>
+</head>
+
+<body style="background-color: rgb(254, 250, 229);">
+
+    <h1> Peça seu pastel </h1>
+
+    <form action="/" method="post">
+
+        <div>
+          <label for="nome"> Nome: </label>
+          <input type="text" id="nome" placeholder="Insira seu nome aqui" />
+        </div>
+
+        <div>
+          <label for="endereco"> Endereço de entrega:</label>
+          <input type="text" id="endereco" placeholder="Insira seu endereço aqui"/>
+        </div>
+
+        <h3 class="cor_clara" >Monte seu recheio (escolha até 4 sabores): </h3>
+        
+        <div>
+            <ul>
+                <li>
+                    <input name="recheio_pastel" type="checkbox" id="queijo" onclick="handleRecheioClick(this)"/>
+                    <label for="queijo"> Queijo </label>
+                </li>
+                <li>
+                    <input name="recheio_pastel" type="checkbox"id="presunto" onclick="handleRecheioClick(this)"/>
+                    <label for="presunto"> Presunto </label>   
+                </li>
+                <li>
+                    <input name="recheio_pastel" type="checkbox" id="calabresa" onclick="handleRecheioClick(this)"/>
+                    <label for="calabresa"> Calabresa </label>
+                </li>
+                <li>
+                    <input name="recheio_pastel" type="checkbox" id="catupiry" onclick="handleRecheioClick(this)"/>
+                    <label for="catupiry"> Catupiry </label>
+                </li>
+                <li>
+                    <input name="recheio_pastel" type="checkbox"id="frango" onclick="handleRecheioClick(this)"/>
+                    <label for="frango"> Frango </label>
+                </li>
+                <li>
+                    <input name="recheio_pastel" type="checkbox" id="carne" onclick="handleRecheioClick(this)"/>
+                    <label for="carne"> Carne </label>
+                </li>
+                <li>
+                    <input name="recheio_pastel" type="checkbox" id="palmito" onclick="handleRecheioClick(this)"/>
+                    <label for="palmito"> Palmito </label>
+                </li>
+                <li>
+                    <input name="recheio_pastel" type="checkbox"id="brocolis" onclick="handleRecheioClick(this)"/>
+                    <label for="brocolis"> Brócolis </label>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="cor_clara" > Forma de Pagamento: </h3>
+            <ul>
+                <li>
+                    <input name="formaPagamento" type="radio" id="dinheiro" onclick="toggleCaixaTroco()"/>
+                    <label for="dinheiro"> Dinheiro </label>
+                </li>
+                <li>
+                    <input name="formaPagamento" type="radio" id="pix" onclick="toggleCaixaTroco()" />
+                    <label for="pix"> Pix </label>
+                </li>
+                <li>
+                    <input name="formaPagamento" type="radio" id="cartao" onclick="toggleCaixaTroco()"/>
+                    <label for="cartao"> Cartão </label>
+                </li>
+            </ul>  
+        </div>
+
+        <div id="caixa_troco" style="display: none;" >
+            <h3 class="cor_clara"> Precisa de troco?</h3>  
+            <div class="troco">
+                <input name="troco" type="radio"/>
+                <label for="troco"> Sim </label> <br>
+                <label for="valor_troco" id="valor_troco_label" > Quanto? </label>
+                <input name="valor_troco" type="text" placeholder="Insira o valor aqui"/>
+            </div>
+        </div>
+        
+        <button id="enviar" type="submit"> Enviar </button>
+
+    </form>
+
+    <script>
+        function toggleCaixaTroco(){
+            var caixa_troco = document.getElementById("caixa_troco");
+            var dinheiro = document.getElementById("dinheiro");
+            if (dinheiro.checked) {
+                caixa_troco.style.display = "block";
+            } else {
+                caixa_troco.style.display = "none";
+            }
+        }
+        
+        function handleRecheioClick(checkbox){
+            var listRecheios = document.getElementsByName("recheio_pastel");
+            var selecionados = 0;
+
+            listRecheios.forEach((recheio) => {
+                if (recheio.checked) {
+                    selecionados++;
+                    if (selecionados > 4) {
+                        checkbox.checked = false;
+                        selecionados--;
+                        alert("Você só pode selecionar 4 recheios");
+                        
+                    } 
+                }
+            }) 
+        }
+
+    </script>
+
+</body>
+</html>

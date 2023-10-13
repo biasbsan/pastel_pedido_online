@@ -1,0 +1,33 @@
+/* Desse jeito todas as listas com ul vão ficar com o mesmo padrão */
+ul {
+    list-style-type: none;
+}
+
+/* desse jeito só a classe troco vai ter esse padrão */
+.troco {
+  padding-left: 42px;
+}
+
+/* desse jeito só esse elementeo vai ter esse padrão, nada mais muda */
+#valor_troco_label {
+    padding-left: 6px;
+}
+
+h1 {
+    text-align: center;
+    background-color: rgb(255, 150, 150);
+}
+
+.cor_clara {
+  background-color:  rgb(255, 150, 150);
+}
+
+#enviar {
+    display: block; 
+    margin: 0 auto;
+}
+
+#enviar:hover {
+    background-color: rgb(255, 150, 150);
+}
+
