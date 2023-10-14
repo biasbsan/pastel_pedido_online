@@ -8,26 +8,84 @@ ul {
   padding-left: 42px;
 }
 
-/* desse jeito só esse elementeo vai ter esse padrão, nada mais muda */
+/* desse jeito só esse elemento vai ter esse padrão, nada mais muda */
 #valor_troco_label {
     padding-left: 6px;
 }
 
 h1 {
+    background-color: rgb(247, 249, 255);
     text-align: center;
-    background-color: rgb(255, 150, 150);
+    padding: 0px 20px 0px 20px;
+    border-radius: 20px;
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 .cor_clara {
-  background-color:  rgb(255, 150, 150);
+  background-color:  rgb(247, 249, 255);
+  color: #299186;
 }
 
 #enviar {
     display: block; 
     margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #enviar:hover {
-    background-color: rgb(255, 150, 150);
+    background-color: #299186;
+    color: aliceblue;
 }
 
+#bloco_formulario {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 20px solid #299186;
+    background-color:  #a8f8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 75vh; 
+    width: 450px;
+    border-radius: 10px;
+}
+
+body {
+    background-image: url(pastelfundo.jpg) ;
+}
+
+.inserirTexto {
+    border: 0px;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #299186;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
