@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br"></html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Pedido_de_Pastel </title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="table-styles.css" />
+    </head>
+<body>
+    <h1>Pedidos Ativos</h1>
+    <table id="order-table" class="styled-table">   
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Recheios</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // Function to fetch data from the API and populate the table
+        function fetchOrders() {
+            fetch('http://localhost:4000/pastel') // Replace with the actual API URL
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#order-table tbody");
+                    data.forEach(pastel => {
+                        const row = tableBody.insertRow(tableBody.rows.length);
+                        row.insertCell(0).textContent = pastel.nome;
+                        row.insertCell(1).textContent = pastel.endereco;
+                        row.insertCell(2).textContent = pastel.selectedRecheios;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data: ', error);
+                });
+        }
+
+        fetchOrders();
+    </script>
+</body>
+</html>
